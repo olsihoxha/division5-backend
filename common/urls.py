@@ -1,9 +1,10 @@
 from django.urls import path
 
 from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
     TokenRefreshView,
 )
+
+from common.views import TokenObtainPairView
 
 urlpatterns = [
     path('auth/knock-knock/', TokenObtainPairView.as_view()),
