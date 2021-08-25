@@ -1,7 +1,7 @@
-from rest_framework_simplejwt.views import TokenViewBase
+from rest_framework_simplejwt.views import TokenObtainPairView
 
-from common.serializers import TokenObtainPairSerializer
+from common.serializers import CustomTokenObtainPairSerializer
 
 
-class TokenObtainPairView(TokenViewBase):
-    serializer_class = TokenObtainPairSerializer
+class EmailTokenObtainPairView(TokenObtainPairView):
+    serializer_class = CustomTokenObtainPairSerializer
