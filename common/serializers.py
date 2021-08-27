@@ -1,8 +1,11 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
+from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 from rest_framework_simplejwt.serializers import TokenObtainSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
+
+from common.models import UserData
 
 
 class EmailTokenObtainSerializer(TokenObtainSerializer):
@@ -41,3 +44,12 @@ class CustomTokenObtainPairSerializer(EmailTokenObtainSerializer):
 
         return data
 
+
+
+class UserDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserData
+        fields = ['first_name', 'last_name', 'birthdate', 'phone_number', 'address', 'nickname']
+
+    def create(self, validated_data):
+        return super(UserDataSerializer, self).create(validated_data)

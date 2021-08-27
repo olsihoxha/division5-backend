@@ -30,7 +30,7 @@ class Migration(migrations.Migration):
             ],
             options={
                 'verbose_name': 'User',
-                'db_table': 'auth_user',
+                'db_table': 'auth_user2',
             },
         ),
     ]
