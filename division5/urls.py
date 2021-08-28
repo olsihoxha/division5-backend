@@ -10,4 +10,3 @@ urlpatterns = [
 
 urlpatterns += product_urls
 urlpatterns += common_urls
-

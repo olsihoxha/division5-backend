@@ -30,7 +30,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'products',
-    'common'
+    'common',
+    'django_filters'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -75,15 +76,18 @@ WSGI_APPLICATION = 'division5.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'thegod420',
+        'NAME': 'division5',  # The name of the database -> you can create your own
+        'USER': 'postgres',  # username on postgresql
+        'PASSWORD': 'thegod420',  # password on postgresql
         'HOST': 'localhost',
-        'PORT': '1111',
+        'PORT': '1111',  # port is arbitrary
     }
 }
 
 REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
@@ -175,6 +179,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+AUTH_USER_MODEL = 'common.User'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
